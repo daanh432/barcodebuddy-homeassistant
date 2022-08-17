@@ -17,6 +17,8 @@ LABEL \
 
 RUN apk add --no-cache unison
 
+RUN echo "*/5 * * * * /usr/bin/unison -batch -auto -silent -log -logfile /config/unison.log /data/config /config >/dev/null 2>&1" >> /etc/crontabs/root
+
 COPY run.sh /
 RUN chmod a+x /run.sh
 
