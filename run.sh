@@ -17,4 +17,5 @@ else
     echo "Syncing between /data/config and /config"
     /usr/bin/unison -batch -auto -silent -log -logfile /config/unison.log /data/config /config
 fi
+
 /init
