@@ -15,4 +15,9 @@ LABEL \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} 
 
-RUN ln -sn /data/config /config
+RUN apk add --no-cache unison
+
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+ENTRYPOINT [ "/run.sh" ]
