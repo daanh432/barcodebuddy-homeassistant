@@ -15,4 +15,7 @@ LABEL \
     io.hass.type="addon" \
     io.hass.version=${BUILD_VERSION} 
 
-RUN ln -sn /data/config /config
+COPY run.sh /
+RUN chmod a+x /run.sh
+
+CMD [ "/run.sh" ]
