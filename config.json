@@ -9,7 +9,7 @@
   "startup": "system",
   "arch": ["aarch64", "amd64", "armv7"],
   "boot": "auto",
-  "map": ["config:rw","ssl"],
+  "map": ["ssl:ro"],
   "ports": {
     "80/tcp": 8621
   },
