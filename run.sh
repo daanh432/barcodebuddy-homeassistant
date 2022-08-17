@@ -1,7 +1,7 @@
 #!/bin/sh
 function cleanup {
-  echo "Syncing /config to /data/config"
-  cp -r /config/* /data/config/
+    echo "Syncing between /data/config and /config"
+    /usr/bin/unison -batch -auto -silent -log -logfile /config/unison.log /data/config /config
 }
 
 trap cleanup EXIT
@@ -11,8 +11,7 @@ then
     echo "Directory /data/config DOES NOT exists." 
 else
     echo "Directory /data/config DOES exists."
-    echo "Syncing /data/config to /config"
-    cp -r /data/config/* /config/
+    echo "Syncing between /data/config and /config"
+    /usr/bin/unison -batch -auto -silent -log -logfile /config/unison.log /data/config /config
 fi
 /init
-
